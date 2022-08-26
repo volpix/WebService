@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "GetAll";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Consumo WebService</h2>
+            <hr />
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table id="tbl" class="table table-hover" border="1">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Nombre</th>
+                        <th class="text-center" scope="col">Foto</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts
+    {
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/Lista.js"></script>
+
+    <script src="~/lib/datatables.net/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables.net-bs5/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tbl').DataTable({
+                "processing": true, // for show progress bar
+                //"serverSide": true, // for process server side
+                "filter": true, // this is for disable filter (search box)
+                "orderMulti": true,
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ datos",
+                    "zeroRecords": "Nothing found - sorry",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de _MAX_ total de datos)",
+                    "search": "Buscar",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
+
+                }
+            });
+        });
+    </script>
+}
